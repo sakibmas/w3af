@@ -1,8 +1,8 @@
 ---
 - hosts: localhost
   vars:
-   hostname: test-website
-   domain: setschedule.local
+   hostname: www
+   domain: bergerbd.com
   tasks:
    - name: Create w3af configruration from template
      template:
