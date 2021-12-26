@@ -10,6 +10,7 @@
       name:
        - git
        - python3-pip
+       - python39
       state: present
 
    - name: Check the w3af directory status
