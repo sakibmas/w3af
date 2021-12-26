@@ -20,7 +20,6 @@
       repo: "{{Repo}}"
       dest: "{{TargetPath}}"
       accept_hostkey: yes
-      version: Test_Sakib
      when: not statTargetPath.stat.exists
 
    - name: Update git repository
@@ -28,7 +27,6 @@
       repo: "{{Repo}}"
       dest: "{{TargetPath}}"
       accept_hostkey: yes
-      version: Test_Sakib
       clone: no
       update: yes
       force: yes
