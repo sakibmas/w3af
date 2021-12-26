@@ -1,5 +1,5 @@
 ---
-- hosts: clab
+- hosts: localhost
   become: yes
   vars:
    Repo: https://github.com/andresriancho/w3af.git
