@@ -5,9 +5,12 @@
    Repo: https://github.com/andresriancho/w3af.git
    TargetPath: w3af
   tasks:
-   - name: Install git package
+   - name: Install required packages
      package:
-      name: git
+      name:
+       - git
+       - python-pip
+       - python2
       state: present
 
    - name: Check the w3af directory status
