@@ -40,5 +40,5 @@
      ignore_errors: yes
 
    - name: Install prerequisites
-     command: . /tmp/w3af_dependency_install.sh
+     command: /tmp/w3af_dependency_install.sh
 ...
