@@ -1,0 +1,42 @@
+# Configure Output. 
+plugins
+output console
+output text_file
+output config text_file
+set http_output_file {{hostname}}-generic-http-{{ansible_date_time.date}}.txt
+set output_file {{hostname}}-generic-{{ansible_date_time.date}}.txt
+back
+output html_file
+output config html_file
+set output_file {{hostname}}-generic-{{ansible_date_time.date}}.html
+back
+output csv_file
+output config csv_file
+set output_file {{hostname}}-generic-{{ansible_date_time.date}}.csv
+back
+output json_file
+output config json_file
+set output_file {{hostname}}-generic-{{ansible_date_time.date}}.json
+back
+grep config vulners_db
+set vulners_api_key CQM84JLNLM1SLA29Y2B9FOB0C7XNATNBIININQPC5QD8O8G7WQDOBGIK22E36BY4
+back
+grep all
+audit all
+crawl user_dir, sitemap_xml, bing_spider, phishtank, web_spider, phpinfo, robots_txt, oracle_discovery
+infrastructure afd, find_vhosts, detect_transparent_proxy, allowed_methods, fingerprint_WAF, server_header, php_eggs, hmap, dot_net_errors, dns_wildcard, detect_reverse_proxy, halberd, shared_hosting, fingerprint_os, server_status, frontpage_version, finger_bing, finger_google, finger_pks
+infrastructure config allowed_methods
+set run_once False
+back
+back
+
+
+#set target
+target
+set target https://{{hostname}}.{{domain}}/
+set target_os unix
+back
+
+start
+
+exit

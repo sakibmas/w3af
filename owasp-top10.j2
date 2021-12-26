@@ -1,0 +1,41 @@
+#set profile
+profiles
+use OWASP_TOP10  
+back
+
+
+# Configure Output. 
+plugins
+output console
+output text_file
+output config text_file
+set http_output_file {{hostname}}-owasp-http-{{ansible_date_time.date}}.txt
+set output_file {{hostname}}-owasp-{{ansible_date_time.date}}.txt
+back
+output html_file
+output config html_file
+set output_file {{hostname}}-owasp-{{ansible_date_time.date}}.html
+back
+output csv_file
+output config csv_file
+set output_file {{hostname}}-owasp-{{ansible_date_time.date}}.csv
+back
+output json_file
+output config json_file
+set output_file {{hostname}}-owasp-{{ansible_date_time.date}}.json
+back
+grep config vulners_db
+set vulners_api_key CQM84JLNLM1SLA29Y2B9FOB0C7XNATNBIININQPC5QD8O8G7WQDOBGIK22E36BY4
+back
+back
+
+
+#set target
+target
+set target https://{{hostname}}.{{domain}}/
+set target_os unix
+back
+
+start
+
+exit
