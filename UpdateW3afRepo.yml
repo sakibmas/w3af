@@ -1,0 +1,36 @@
+---
+- hosts: clab
+  become: yes
+  vars:
+   Repo: https://github.com/andresriancho/w3af.git
+   TargetPath: w3af
+  tasks:
+   - name: Install git package
+     package:
+      name: git
+      state: present
+
+   - name: Check the w3af directory status
+     stat:
+      path: "{{TargetPath}}"
+     register: statTargetPath
+
+   - name: Clone git repository
+     git:
+      repo: "{{Repo}}"
+      dest: "{{TargetPath}}"
+      accept_hostkey: yes
+      version: Test_Sakib
+     when: not statTargetPath.stat.exists
+
+   - name: Update git repository
+     git:
+      repo: "{{Repo}}"
+      dest: "{{TargetPath}}"
+      accept_hostkey: yes
+      version: Test_Sakib
+      clone: no
+      update: yes
+      force: yes
+     when: statTargetPath.stat.exists
+...
