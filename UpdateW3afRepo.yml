@@ -9,6 +9,7 @@
      package:
       name:
        - git
+       - npm
       state: present
 
    - name: Check the w3af directory status
