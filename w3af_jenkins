@@ -1,0 +1,20 @@
+pipeline{
+    agent { label 'w3af' }
+    stages{
+        stage('Run w3af scan to test-website'){
+            steps{
+                sh 'pwd'
+                sh 'date'
+                sh 'ansible-playbook test-website-generic.yml'
+                sh '/home/super/w3af/w3af_console -s ./test-website-generic.w3f'
+            }
+        }
+        stage('Run w3af scan to stg-desktop'){
+            steps{
+                sh 'date'
+                sh 'ansible-playbook stg-desktop-generic.yml'
+                sh '/home/super/w3af/w3af_console -s ./stg-desktop-generic.w3f'
+            }
+        }
+    }
+}

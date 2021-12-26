@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  vars:
+   hostname: test-website
+   domain: setschedule.local
+  tasks:
+   - name: Create w3af configruration from template
+     template:
+      src: ./generic.j2
+      dest: ./{{hostname}}-generic.w3f
+...
