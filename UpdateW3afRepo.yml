@@ -34,4 +34,11 @@
       update: yes
       force: yes
      when: statTargetPath.stat.exists
+
+   - name: Get prerequisites
+     command: ./w3af/w3af_console
+     ignore_errors: yes
+
+   - name: Install prerequisites
+     command: . /tmp/w3af_dependency_install.sh
 ...
