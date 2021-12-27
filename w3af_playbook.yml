@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+- hosts: w3af
+  become: yes
   vars:
    hostname: www
    domain: bergerbd.com
