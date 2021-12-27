@@ -3,9 +3,11 @@ w3af is an open source web application security scanner which helps developers a
 
 ## Playbook Variables:
 - hostname
-  - Used in w3af_playbook.yml
+  - Used in template files
+  - Referenced by w3af_playbook.yml
 - domain
-  - Used in w3af_playbook.yml
+  - Used in template files
+  - Referenced by w3af_playbook.yml
 
 ## Jenkins Pipeline:
 - Definition: Pipeline script from SCM
