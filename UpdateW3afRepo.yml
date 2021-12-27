@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: w3af
   become: yes
   vars:
    Repo: https://github.com/andresriancho/w3af.git
