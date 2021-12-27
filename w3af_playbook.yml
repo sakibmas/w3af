@@ -1,9 +1,6 @@
 ---
 - hosts: w3af
   become: yes
-  vars:
-   hostname: www
-   domain: bergerbd.com
   tasks:
    - name: Create w3af configruration from template
      template:
