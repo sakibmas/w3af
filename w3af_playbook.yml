@@ -6,4 +6,8 @@
      template:
       src: ./generic.j2
       dest: ./{{hostname}}-generic.w3f
+   - name: Run scan
+     template:
+      src: ./generic.j2
+      dest: ./{{hostname}}-generic.w3f
 ...
