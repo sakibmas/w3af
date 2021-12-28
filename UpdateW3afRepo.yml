@@ -1,6 +1,5 @@
 ---
 - hosts: w3af
-  become: yes
   vars:
    Repo: https://github.com/andresriancho/w3af.git
    TargetPath: w3af
@@ -33,11 +32,4 @@
       update: yes
       force: yes
      when: statTargetPath.stat.exists
-
-   - name: Get prerequisites
-     command: ./w3af/w3af_console
-     ignore_errors: yes
-
-   - name: Install prerequisites
-     command: /tmp/w3af_dependency_install.sh
 ...

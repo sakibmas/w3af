@@ -1,6 +1,5 @@
 ---
 - hosts: w3af
-  become: yes
   tasks:
    - name: Create w3af configruration from template
      template:
