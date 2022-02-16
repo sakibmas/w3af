@@ -1,10 +1,43 @@
 ---
 - hosts: w3af
+  vars:
+   Repo: https://github.com/andresriancho/w3af.git
+   TargetPath: w3af
   tasks:
+   - name: Install required packages
+     package:
+      name:
+       - git
+       - npm
+      state: present
+
+   - name: Check the w3af directory status
+     stat:
+      path: "{{TargetPath}}"
+     register: statTargetPath
+
+   - name: Clone git repository
+     git:
+      repo: "{{Repo}}"
+      dest: "{{TargetPath}}"
+      accept_hostkey: yes
+     when: not statTargetPath.stat.exists
+
+   - name: Update git repository
+     git:
+      repo: "{{Repo}}"
+      dest: "{{TargetPath}}"
+      accept_hostkey: yes
+      clone: no
+      update: yes
+      force: yes
+     when: statTargetPath.stat.exists
+
    - name: Create w3af configruration from template
      template:
       src: ./generic.j2
       dest: ./{{hostname}}-generic.w3f
+
    - name: Run scan
      command: w3af/w3af_console -s ./{{hostname}}-generic.w3f
 ...
