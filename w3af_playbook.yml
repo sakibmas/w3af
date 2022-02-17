@@ -39,5 +39,5 @@
       dest: ./{{hostname}}-generic.w3f
 
    - name: Run scan
-     command: w3af/w3af_console -s ./{{hostname}}-generic.w3f
+     command: w3af/w3af_console -y -s ./{{hostname}}-generic.w3f
 ...
