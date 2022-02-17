@@ -1,5 +1,5 @@
 ---
-- hosts: w3af
+- hosts: localhost
   vars:
    Repo: https://github.com/andresriancho/w3af.git
    TargetPath: w3af
